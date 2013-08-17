@@ -1,23 +1,25 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
-</div>
+<ol class='note_list'>
+  <h2>All Notes</h2>
+  <% @notes.each do |note| %>
+    <h3 class='title'>Note title:</h3> <%= note.title %><br>
+    <h3 class='content'>Note content:</h3> <%= note.content %></li>
+    <br><br>
+    <form class='note_options' method='get' action='/notes/new'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Delete Note'>
+    </form>
+
+
+    <form class='note_options' method='get' action='/notes/:id/edit'>
+    <input type='hidden' name='_method' value='put'>
+      <input type='submit' value='Edit Note'>
+    </form>
+    <br>
+  <% end %>
+</ol>
+
+<h3>Add Notes:</h3>
+  <form class='note_options' method='get' action='/notes/new'>
+    <input type='submit' value='Create New Note'>
+  </form>

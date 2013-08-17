@@ -1,0 +1,9 @@
+<ol>
+  <h3>All Notes</h3>
+  <% @notes.each do |note| %>
+    <p>Note Title</p>
+    <li><%= note.title %></li>
+    <p>Note Content</p>
+    <li><%= note.content %></li>
+  <% end %>
+</ol>

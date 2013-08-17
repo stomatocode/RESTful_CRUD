@@ -2,23 +2,24 @@
 # Home page
 get '/' do
   # Look in app/views/index.erb
+  @notes = Note.all
   erb :index
 end
 
 # Display list of notes
-get '/list' do
-
+get '/notes' do
+  @notes = Note.all
   erb :list
 end
 
 # gets form for new note
-get '/new_note' do
+get '/notes/new' do
 
   erb :new
 end
 
 # write new note to DB
-post '/write_note' do
+post '/notes' do
 
   erb :list  
 end
@@ -36,13 +37,13 @@ get '/notes/:id/edit' do
 end
 
 # make changes to an existing note
-put '/notes/:id/update' do
+put '/notes/:id' do
 
   redirect "/notes/#{@note.id}"
 end
 
 # delete a note
-delete '/notes/:id/trash' do
+delete '/notes/:id' do
 
   redirect '/notes'
 end
