@@ -1,0 +1,16 @@
+
+<% if @note %>
+
+<h3><%= @note.title %></h3>
+
+  <form action="/notes/<%= @note.id %>" method="post" id="edit">  
+    <input type="hidden" name="_method" value="put">  
+    
+    <input type='text' name='content' value='<%= @note.content %>'> 
+    
+    <input type="submit" value='Save'>  
+  </form>  
+  <p><a href="/notes/<%= @note.id %>/delete">Delete</a></p>  
+<% else %>  
+  <p>Note not found.</p>  
+<% end %> 

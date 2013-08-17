@@ -21,17 +21,21 @@ end
 # write new note to DB
 post '/notes' do
 
+  @notes = Note.all
   erb :list  
 end
 
 # view one note
 get '/notes/:id' do
 
+  @note = Note.find(params[:id])
   erb :show
 end
 
 # edit one note
 get '/notes/:id/edit' do
+
+  @note = Note.find(params[:id])
 
   erb :edit
 end
@@ -39,11 +43,17 @@ end
 # make changes to an existing note
 put '/notes/:id' do
 
+  note = Note.find(params[:id])
+  note.update(content: params[:content])
+
   redirect "/notes/#{@note.id}"
 end
 
 # delete a note
-delete '/notes/:id' do
+delete '/notes/:id/delete' do
+
+  note = Note.find(params[:id])
+  note.destroy
 
   redirect '/notes'
 end
