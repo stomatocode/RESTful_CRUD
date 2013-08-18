@@ -9,7 +9,7 @@ end
 # Display list of notes
 get '/notes' do
   @notes = Note.all
-  erb :list
+  erb :index
 end
 
 # gets form for new note
@@ -20,9 +20,10 @@ end
 
 # write new note to DB
 post '/notes' do
-  new_note = Note.create(params)
+  p params
+  new_note = Note.create(params['new'])
   @notes = Note.all
-  erb :list  
+  erb :index  
 end
 
 # view one note
@@ -54,5 +55,5 @@ delete '/notes/:id/delete' do
 
   note = Note.find(params[:id])
   note.destroy
-
+  
 end

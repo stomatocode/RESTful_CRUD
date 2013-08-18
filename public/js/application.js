@@ -14,8 +14,8 @@ $(document).ready(function() {
         type: 'DELETE'
         // success: function () {$(link.attr('href').parent('li').remove();}
       }).done(function(){
-        console.log(this);
-        $(this).closest('li').remove();
+        console.log(link);
+        link.closest('li').remove();
     });
 
     // function removeLi(){
