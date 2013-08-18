@@ -7,15 +7,15 @@ $(document).ready(function() {
 
   $('.delete').on('click', function(event){
     event.preventDefault();
-    var link = $('this');
-    console.log(link.attr('href'));
+    var link = $(this);
+    console.log(link);
       $.ajax({
         url: link.attr('href'),
         type: 'DELETE'
         // success: function () {$(link.attr('href').parent('li').remove();}
       }).done({
         $(this).attr('href').parent('li').remove();
-    })
+    });
 
     // function removeLi(){
     //   $(link.attr('href').parent('li').remove();
