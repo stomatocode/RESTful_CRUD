@@ -20,7 +20,7 @@ end
 
 # write new note to DB
 post '/notes' do
-
+  new_note = Note.create(params)
   @notes = Note.all
   erb :list  
 end

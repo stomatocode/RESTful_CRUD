@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
-  $('.delete').on('click', function(event){
+  $('a.delete').on('click', function(event){
     event.preventDefault();
     var link = $(this);
     console.log(link);
@@ -13,8 +13,9 @@ $(document).ready(function() {
         url: link.attr('href'),
         type: 'DELETE'
         // success: function () {$(link.attr('href').parent('li').remove();}
-      }).done({
-        $(this).attr('href').parent('li').remove();
+      }).done(function(){
+        console.log(this);
+        $(this).closest('li').remove();
     });
 
     // function removeLi(){

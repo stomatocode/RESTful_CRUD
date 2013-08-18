@@ -1,6 +1,6 @@
+<h2>All Notes</h2>
 
 <ol class='note_list'>
-  <h2>All Notes</h2>
   <% @notes.each do |note| %>
 
     <li>
@@ -8,7 +8,7 @@
    
         <%= note.content %><br>
       <p><a href="/notes/<%= note.id %>/edit">Edit this note</a></p>
-      <p><a href="/notes/<%= note.id %>/delete">Delete</a></p>  
+      <p><a href="/notes/<%= note.id %>/delete" class='delete'>Delete</a></p>  
     </li>
     
   <% end %>
