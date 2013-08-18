@@ -2,20 +2,15 @@
 <ol class='note_list'>
   <h2>All Notes</h2>
   <% @notes.each do |note| %>
-    <h3 class='title'>Note title:</h3> <%= note.title %><br>
-    <h3 class='content'>Note content:</h3> <%= note.content %></li>
-    <br><br>
-    <form class='note_options' method='get' action='/notes/new'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Delete Note'>
-    </form>
 
-
-    <form class='note_options' method='get' action='/notes/:id/edit'>
-    <input type='hidden' name='_method' value='put'>
-      <input type='submit' value='Edit Note'>
-    </form>
-    <br>
+    <li>
+      <p><a href="/notes/<%= note.id %>"><%= note.title %></a></p>
+   
+        <%= note.content %><br>
+      <p><a href="/notes/<%= note.id %>/edit">Edit this note</a></p>
+      <p><a href="/notes/<%= note.id %>/delete" method='delete'>Delete</a></p>  
+    </li>
+    
   <% end %>
 </ol>
 
@@ -23,3 +18,9 @@
   <form class='note_options' method='get' action='/notes/new'>
     <input type='submit' value='Create New Note'>
   </form>
+
+
+
+
+
+

@@ -55,5 +55,4 @@ delete '/notes/:id/delete' do
   note = Note.find(params[:id])
   note.destroy
 
-  redirect '/notes'
 end

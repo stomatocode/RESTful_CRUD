@@ -1,13 +1,13 @@
 <ol>
   <h3>All Notes</h3>
   <% @notes.each do |note| %>
-    
-    <li><p>Note Title:</p><br>
-      <a href="/notes/<% note.id %>"><%= note.title %></a></li>
-    <br>
-    <li><p>Note Content</p><br>
-      <%= note.content %><br>
-      <p><a href="/notes/<% note.id %>/edit">Edit this note</a></p>
+
+    <li>
+      <p><a href="/notes/<%= note.id %>"><%= note.title %></a></p>
+        <%= note.content %><br>
+      <p><a href="/notes/<%= note.id %>/edit" class='edit'>Edit this note</a></p>
+      <p><a href="/notes/<%= note.id %>/delete" class='delete'>Delete</a></p>  
     </li>
+
   <% end %>
 </ol>
